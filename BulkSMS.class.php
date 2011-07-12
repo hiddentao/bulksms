@@ -118,7 +118,7 @@ class BulkSMS {
                 $errstr .= " [$error->message]";
             }
             libxml_use_internal_errors(false);
-            throw new BulkSMSException(t('Error parsing XML: @error ... @r',array('@error' => $errstr, '@r' => $xmlresponse)));
+            throw new BulkSMSException('Error parsing XML: '.$errstr.' ... '.$xmlresponse);
         }
         libxml_use_internal_errors(false);
 
@@ -165,3 +165,4 @@ class BulkSMSException extends Exception {
     }
 
 }
+
